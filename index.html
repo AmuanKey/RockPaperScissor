@@ -6,6 +6,7 @@
     <title>Rock, Paper Scissor</title>
 </head>
 <body>
+
     <script>
         let humanScore = 0;
         let computerScore = 0;
@@ -69,7 +70,12 @@ function playGame(num){
     }
 };
 
-playGame(5);
+let rounds = prompt("how Many round do you want to play?");
+
+playGame(rounds);
+
+let roundCount = 0;
+
 
 
 
@@ -88,5 +94,6 @@ document.write("Computer Score "+ computerScore);
 
 </script>
 </div>
+
 </body>
 </html>
