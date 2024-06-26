@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper Scissor</title>
+</head>
+<body>
+    <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+function getComputerChoice() {
+    let computerChoice = "";
+    let num =  Math.floor(Math.random()*3)+1;
+    switch (num) {
+        case 1:
+            computerChoice = "rock";
+            break;
+        case 2:
+            computerChoice ="paper";
+        case 3:
+            computerChoice = "scissor";
+    
+        default:
+            break;
+    }
+    return computerChoice;
+}
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, Paper, Or Scissor ?");
+    let ans =  humanChoice.toLowerCase();
+    
+     if (ans == "rock" || ans == "paper" || ans == "scissor") {
+        return ans;
+     }
+     else {
+        return getHumanChoice() ;
+     }
+    
+}
+
+
+function playRound(humanChoice,computerChoice){
+    if (humanChoice == "rock" && computerChoice == "scissor"){
+        humanScore += 1;
+        console.log("You Win Rock beats Scissor");
+    }
+    else if(humanChoice == "paper" && computerChoice == "rock"){
+        humanScore += 1;
+        console.log("You Win Paper beats Rock");
+    }
+    else if(humanChoice == "scissor" && computerChoice == "paper"){
+        humanScore +=1;
+        console.log("You Win Scissor beats Paper");
+    }
+    else {
+        computerScore += 1;
+        console.log("You Lose. Computer Wins");
+    }
+}
+function playGame(num){
+    for (let i = 0; i < num; i++) {
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+};
+
+playGame(5);
+
+
+console.log("Human score "+ humanScore);
+console.log("computer Score "+ computerScore);
+
+
+</script>
+</body>
+</html>
