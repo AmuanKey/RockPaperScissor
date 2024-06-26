@@ -10,6 +10,7 @@
     <script>
         let humanScore = 0;
         let computerScore = 0;
+        let tie = 0;
         
 
 function getComputerChoice() {
@@ -39,6 +40,7 @@ function getHumanChoice() {
      if (ans == "rock" || ans == "paper" || ans == "scissor") {
         return ans;
      }
+    
      else {
         return getHumanChoice() ;
      }
@@ -59,6 +61,10 @@ function playRound(humanChoice,computerChoice){
         humanScore +=1;
         console.log("You Win Scissor beats Paper");
     }
+    else if(humanChoice == computerChoice){
+         console.log("It's a Tie") ;
+         tie += 1;
+     }
     else {
         computerScore += 1;
         console.log("You Lose. Computer Wins");
@@ -93,6 +99,13 @@ let roundCount = 0;
 document.write("Computer Score "+ computerScore);
 
 </script>
+</div>
+<div>
+    <script>
+        if(tie){
+            document.write(`With ${tie} tie`);
+        }
+    </script>
 </div>
 
 </body>
