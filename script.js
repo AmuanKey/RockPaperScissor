@@ -1,8 +1,17 @@
-var computerScore = 10;
+var computerScore = 0;
 var humanScore = 0;
 let humanChoice;
 let computerChoice;
 let roundCount = 0;
+
+let RoundText = document.querySelector(".header-text");
+let Footer = document.querySelector(".footer");
+
+let yourscore = document.querySelector(".yourscore");
+let pcscore = document.querySelector(".pcscore");
+
+
+
 
 function getComputerChoice() {
 
@@ -39,30 +48,31 @@ humanChoice = e.target.id;
 console.log("Your choice is "+humanChoice);
     playRound(humanChoice,getComputerChoice());
     roundCount++;
-    console.log("Round " + roundCount);
-    console.log("computer score" +computerScore);
-    console.log("human score" +humanScore);
+    RoundText.innerText = "Round - "+roundCount;
+    pcscore.innerText = "Computer score "+ computerScore;
+    yourscore.innerText = "Your score " +humanScore;
+    
 })
 
 
 function playRound(humanChoice,computerChoice){
 if (humanChoice == "rock" && computerChoice == "scissor"){
-console.log("You Win Rock beats Scissor");
+Footer.innerText = "You Win Rock beats Scissor";
 humanScore++;
 }
 else if(humanChoice == "paper" && computerChoice == "rock"){
-console.log("You Win Paper beats Rock");
+Footer.innerText = "You Win Paper beats Rock";
 humanScore++;
 }
 else if(humanChoice == "scissor" && computerChoice == "paper"){
-console.log("You Win Scissor beats Paper");
+Footer.innerText = "You Win Scissor beats Paper";
 humanScore++;
 }
 else if(humanChoice == computerChoice){
- console.log("It's a Tie") ;
+ Footer.innerText = "It's a Tie" ;
 }
 else {
-console.log("You Lose. Computer Wins");
+Footer.innerText = "You Lose. Computer Wins";
 computerScore++;
 }
 }
